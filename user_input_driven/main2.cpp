@@ -77,20 +77,12 @@ void rps(void)
 	}
 	else if (winning_moves.at(input1) == input2)
 	{
-<<<<<<< HEAD:user_input_driven/main.cpp
 		std::cout << "\x1b[1;33m[RESULT]: \x1b[1;32m Player 1 wins!\x1b[0m" << '\n';
-=======
-		std::cout << "\x1b[1;33m[RESULT]:\x1b \x1b[1;32m Player 1 wins!\x1b[0m" << '\n';
->>>>>>> 5f197c60d0a345b588bedf3939bdd8232fef2316:main.cpp
 		return;
 	}
 	else
 	{
-<<<<<<< HEAD:user_input_driven/main.cpp
 		std::cout << "\x1b[1;33m[RESULT]: \x1b[1;32m Player 2 wins!\x1b[0m" << '\n';
-=======
-		std::cout << "\x1b[1;33m[RESULT]:\x1b \x1b[1;32m Player 2 wins!\x1b[0m" << '\n';
->>>>>>> 5f197c60d0a345b588bedf3939bdd8232fef2316:main.cpp
 		return;
 	}
 }
