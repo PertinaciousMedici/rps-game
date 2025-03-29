@@ -9,17 +9,20 @@ typedef std::vector<str> str_vec;
 typedef std::unordered_map<str, str> str_str_m;
 
 void rps(void);
-bool includes(const str_vec& data, str query);
+bool includes(const str_vec& data, const str& query);
 str trim(str original);
 str lower(const str& original);
 
 int main(void)
 {
+	int game = 0;
+
 	while (true)
 	{
-		std::cout << "\x1b[1;32m[ROCK, PAPER, SCISSORS]:\x1b[0m" << '\n';
+		game++;
+		std::cout << "\x1b[1;33m[GAME " << game << "]:\x1b[1;32m " << '\n' << "[ROCK, PAPER, SCISSORS]:\x1b[0m" << '\n';
 		rps();
-		std::cout << "\x1b[1;31m[GAME OVER]\x1b[0m" << '\n';
+		std::cout << "\x1b[1;33m[GAME OVER]\x1b[0m" << '\n' << '\n';
 	}
 
 	return 0;
@@ -31,10 +34,10 @@ void rps(void)
 	str input2;
 
 	str_vec options = { "rock", "paper", "scissors" };
-	
+
 	do
 	{
-		std::cout << "\x1b[1;32mPlayer 1 (rock, paper, scissors):\x1b[0m ";
+		std::cout << "\x1b[1;33m[INPUT]: \x1b[1;32mPlayer 1 (rock, paper, scissors):\x1b[0m ";
 		std::getline(std::cin >> std::ws, input1);
 		input1 = trim(lower(input1));
 
@@ -42,14 +45,14 @@ void rps(void)
 		{
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "\x1b[1;31mInvalid input! Insert a valid option.\x1b[0m" << '\n';
+			std::cout << "\x1b[1;31m[ERROR]: Invalid input! Insert a valid option.\x1b[0m" << '\n';
 		}
 
 	} while (!includes(options, input1));
 
 	do
 	{
-		std::cout << "\x1b[1;32mPlayer2 (rock, paper, scissors):\x1b[0m ";
+		std::cout << "\x1b[1;33m[INPUT]: \x1b[1;32mPlayer2 (rock, paper, scissors):\x1b[0m ";
 		std::getline(std::cin >> std::ws, input2);
 		input2 = trim(lower(input2));
 
@@ -57,7 +60,7 @@ void rps(void)
 		{
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "\x1b[1;31mInvalid input! Insert a valid option.\x1b[0m" << '\n';
+			std::cout << "\x1b[1;31m[ERROR]: Invalid input! Insert a valid option.\x1b[0m" << '\n';
 		}
 	} while (!includes(options, input2));
 
@@ -69,22 +72,30 @@ void rps(void)
 
 	if (input1.compare(input2) == 0)
 	{
-		std::cout << "\x1b[1;33mDraw!\x1b[0m" << '\n';
+		std::cout << "\x1b[1;33m[RESULT]: \x1b[1;32m Draw!\x1b[0m" << '\n';
 		return;
 	}
 	else if (winning_moves.at(input1) == input2)
 	{
-		std::cout << "\x1b[1;32mPlayer 1 wins!\x1b[0m" << '\n';
+<<<<<<< HEAD:user_input_driven/main.cpp
+		std::cout << "\x1b[1;33m[RESULT]: \x1b[1;32m Player 1 wins!\x1b[0m" << '\n';
+=======
+		std::cout << "\x1b[1;33m[RESULT]:\x1b \x1b[1;32m Player 1 wins!\x1b[0m" << '\n';
+>>>>>>> 5f197c60d0a345b588bedf3939bdd8232fef2316:main.cpp
 		return;
 	}
 	else
 	{
-		std::cout << "\x1b[1;32mPlayer 2 wins!\x1b[0m" << '\n';
+<<<<<<< HEAD:user_input_driven/main.cpp
+		std::cout << "\x1b[1;33m[RESULT]: \x1b[1;32m Player 2 wins!\x1b[0m" << '\n';
+=======
+		std::cout << "\x1b[1;33m[RESULT]:\x1b \x1b[1;32m Player 2 wins!\x1b[0m" << '\n';
+>>>>>>> 5f197c60d0a345b588bedf3939bdd8232fef2316:main.cpp
 		return;
 	}
 }
 
-bool includes(const str_vec& data, str query)
+bool includes(const str_vec& data, const str& query)
 {
 	return std::find(data.begin(), data.end(), query) != data.end();
 }
